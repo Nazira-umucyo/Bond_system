@@ -7,18 +7,16 @@ public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String staffId;
     private String firstName;
-
     private String lastName;
-
     private String email;
-
     private String department;
-
+    private String position;
+    private String dateJoined;
     private String status;
 
     public Employee() {
-        // Default constructor required by JPA
     }
 
     public Long getId() {
@@ -27,6 +25,14 @@ public class Employee {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getStaffId() {
+        return staffId;
+    }
+
+    public void setStaffId(String staffId) {
+        this.staffId = staffId;
     }
 
     public String getFirstName() {
@@ -59,6 +65,19 @@ public class Employee {
 
     public void setDepartment(String department) {
         this.department = department;
+    }
+
+    public String getPosition() {
+        return position;
+    }
+    public void setPosition(String position) {
+        this.position = position;
+    }
+    public String getDateJoined() {
+        return dateJoined;
+    }
+    public void setDateJoined(String dateJoined) {
+        this.dateJoined = dateJoined;
     }
 
     public String getStatus() {

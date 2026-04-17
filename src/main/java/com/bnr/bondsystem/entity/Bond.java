@@ -1,77 +1,97 @@
 package com.bnr.bondsystem.entity;
 
 import jakarta.persistence.*;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
-@Table(name = "bonds")
-
 public class Bond {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-    private String trainingProvider;
-    private String trainingCost;
-    private String durationMonths;
-    private String startDate;
-    private String expiryDate;
-    private String status;
-    private String documentPath;
+    private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "employee_id", nullable = false)
+    private String staffId;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "employee_id")
     private Employee employee;
 
-    public Bond() {
+    private String training;
+    private int duration;
 
+    @JsonProperty("cost")
+    private Double cost;
+    private LocalDate startDate;
+
+    @JsonProperty("exposure")
+    private Double exposure;
+    private String status;
+    private String documentName;
+
+    @JsonProperty("employeeFullName")
+    public String getEmployeeFullName() {
+        if (this.employee != null) {
+            return this.employee.getFirstName() + " " + this.employee.getLastName();
+        }
+        return "Unknown Employee";
     }
 
-    public long getId() {
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public String getTrainingProvider() {
-        return trainingProvider;
+    public String getStaffId() {
+        return staffId;
     }
 
-    public void setTrainingProvider(String trainingProvider) {
-        this.trainingProvider = trainingProvider;
+    public void setStaffId(String staffId) {
+        this.staffId = staffId;
     }
 
-    public String getTrainingCost() {
-        return trainingCost;
+
+    public Employee getEmployee() {
+        return employee;
+    }
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
     }
 
-    public void setTrainingCost(String trainingCost) {
-        this.trainingCost = trainingCost;
+    public String getTraining() {
+        return training;
     }
 
-    public String getDurationMonths() {
-        return durationMonths;
+    public void setTraining(String training) {
+        this.training = training;
     }
 
-    public void setDurationMonths(String durationMonths) {
-        this.durationMonths = durationMonths;
+    public int getDuration() {
+        return duration;
     }
 
-    public String getStartDate() {
+    public void setDuration(int duration) {
+        this.duration = duration;
+    }
+
+    public Double getCost() {
+        return cost;
+    }
+
+    public void setCost(Double cost) {
+        this.cost = cost;
+    }
+
+    public LocalDate getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(String startDate) {
+    public void setStartDate(LocalDate startDate) {
         this.startDate = startDate;
-    }
-
-    public String getExpiryDate() {
-        return expiryDate;
-    }
-
-    public void setExpiryDate(String expiryDate) {
-        this.expiryDate = expiryDate;
     }
 
     public String getStatus() {
@@ -82,20 +102,19 @@ public class Bond {
         this.status = status;
     }
 
-    public String getDocumentPath() {
-        return documentPath;
+    public Double getExposure() {
+        return exposure;
     }
 
-    public void setDocumentPath(String documentPath) {
-        this.documentPath = documentPath;
+    public void setExposure(Double exposure) {
+        this.exposure = exposure;
     }
 
-    public Employee getEmployee() {
-        return employee;
+    public String getDocumentName() {
+        return documentName;
     }
 
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
+    public void setDocumentName(String documentName) {
+        this.documentName = documentName;
     }
-
 }
