@@ -9,6 +9,7 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
+import java.util.Arrays;
 import java.util.List;
 
 @Configuration
@@ -21,7 +22,6 @@ public class SecurityConfig {
                 .cors(cors -> cors.configurationSource(corsConfigurationSource()))
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/login", "/users", "/bonds").permitAll()
                         .anyRequest().permitAll()
                 );
 
@@ -31,14 +31,17 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(List.of("https://bond-system.netlify.app"));
-        configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+        configuration.setAllowedOrigins(List.of(
+                "https://bond-system.netlify.app",
+                "http://localhost:3000"
+        ));
+        configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"));
         configuration.setAllowedHeaders(List.of("*"));
         configuration.setAllowCredentials(true);
-        return source -> {
-            UrlBasedCorsConfigurationSource urlSource = new UrlBasedCorsConfigurationSource();
-            urlSource.registerCorsConfiguration("/**", configuration);
-            return urlSource.getCorsConfiguration(source);
-        };
+        configuration.setMaxAge(3600L);
+
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", configuration);
+        return source;
     }
 }
