@@ -1,0 +1,162 @@
+.reports-container {
+  padding: 30px;
+  background: #f4f6f9;
+  min-height: 100vh;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.reports-container h1 {
+  margin-bottom: 20px;
+  color: #5C4033;
+  font-weight: 700;
+}
+
+.filters {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.filters input,
+.filters select {
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  outline: none;
+  background: white;
+  transition: 0.2s;
+}
+
+.filters input:focus,
+.filters select:focus {
+  border-color: #5C4033;
+}
+
+.kpis {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.kpis div {
+  background: white;
+  padding: 18px;
+  border-radius: 12px;
+  font-weight: 600;
+  color: #374151;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border-left: 5px solid #5C4033;
+  transition: 0.2s;
+}
+
+.kpis div:hover {
+  transform: translateY(-4px);
+}
+
+.financial {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.financial h3 {
+  margin-bottom: 10px;
+  color: #5C4033;
+}
+
+.financial p {
+  margin: 6px 0;
+  color: #4b5563;
+  font-size: 14px;
+}
+
+.report-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.report-table thead {
+  background: #5C4033;
+  color: white;
+}
+
+.report-table th,
+.report-table td {
+  padding: 12px 15px;
+  text-align: left;
+  font-size: 14px;
+}
+
+.report-table tbody tr {
+  border-bottom: 1px solid #e5e7eb;
+  transition: 0.2s;
+}
+
+.report-table tbody tr:hover {
+  background: #f9fafb;
+}
+
+.status {
+  font-weight: 600;
+}
+
+.status.active {
+  color: #16a34a;
+}
+
+.status.breached {
+  color: #dc2626;
+}
+
+.status.completed {
+  color: #2563eb;
+}
+
+.status.pending {
+  color: #f59e0b;
+}
+
+.export-btn {
+  background: #5C4033;
+  color: white;
+  padding: 12px 22px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.export-btn:hover {
+  background: #4a3228;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .filters {
+    flex-direction: column;
+  }
+
+  .kpis {
+    grid-template-columns: 1fr;
+  }
+
+  .report-table th,
+  .report-table td {
+    font-size: 12px;
+    padding: 8px;
+  }
+}
+.financial h3 {
+  border-bottom: 2px solid #5C4033;
+  padding-bottom: 5px;
+}

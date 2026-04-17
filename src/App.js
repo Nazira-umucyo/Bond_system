@@ -1,25 +1,94 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route, useLocation } from "react-router-dom";
+
+import LoginPage from "./pages/LoginPage";
+import UsersPage from "./pages/UsersPage";
+import BondsPage from "./pages/BondsPage";
+import BondList from "./components/BondList";
+import DashboardPage from "./pages/DashboardPage";
+import ApprovalPage from "./pages/ApprovalPage";
+import ReportsPage from "./pages/ReportsPage";
+
+
+import Sidebar from "./components/Sidebar";
+import RoleRoute from "./utils/RoleRoute";
 
 function App() {
+  const location = useLocation();
+  const showSidebar = location.pathname !== "/";
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{ display: "flex", minHeight: "100vh" }}>
+
+      {showSidebar && <Sidebar />}
+
+      <div
+        style={{
+          flex: 1,
+          padding: "20px",
+        }}
+      >
+        <Routes>
+
+          <Route path="/" element={<LoginPage />} />
+
+          <Route
+            path="/dashboard"
+            element={
+              <RoleRoute allowedRoles={["ADMIN", "HR", "MANAGER", "AUDITOR"]}>
+                <DashboardPage />
+              </RoleRoute>
+            }
+          />
+
+          <Route
+            path="/users"
+            element={
+              <RoleRoute allowedRoles={["ADMIN"]}>
+                <UsersPage />
+              </RoleRoute>
+            }
+          />
+
+          <Route
+            path="/bonds"
+            element={
+              <RoleRoute allowedRoles={["HR"]}>
+                <BondsPage />
+              </RoleRoute>
+            }
+          />
+
+          <Route
+            path="/approvals"
+            element={
+              <RoleRoute allowedRoles={["MANAGER"]}>
+                <ApprovalPage />
+              </RoleRoute>
+            }
+          />
+
+          <Route
+            path="/bond-list"
+            element={
+              <RoleRoute allowedRoles={["MANAGER"]}>
+                <BondList />
+              </RoleRoute>
+            }
+          />
+
+          <Route
+            path="/reports"
+            element={
+              <RoleRoute allowedRoles={["AUDITOR"]}>
+                <ReportsPage />
+              </RoleRoute>
+            }
+          />
+
+        </Routes>
+      </div>
+
     </div>
   );
 }
-
 export default App;
