@@ -1,7 +1,7 @@
-
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import "./LoginPage.css";
+import api from "../utils/Api";
 
 function LoginPage() {
     const [username, setUsername] = useState("");
@@ -10,48 +10,35 @@ function LoginPage() {
 
     const navigate = useNavigate();
 
-
     const handleLogin = async () => {
-    if (!username || !password) {
-        alert("Fill all fields");
-        return;
-    }
-
-    setLoading(true);
-
-    try {
-        const response = await fetch("http://localhost:8080/users/login", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                username: username,
-                password: password,
-            }),
-        });
-
-        if (!response.ok) {
-            alert("Wrong username or password");
-            setLoading(false);
+        if (!username || !password) {
+            alert("Fill all fields");
             return;
         }
 
-      const data = await response.json();
+        setLoading(true);
 
-localStorage.setItem("role", data.role);
-localStorage.setItem("username", data.username);
-localStorage.setItem("token", "logged_in");
+        try {
+            const response = await api.post("/users/login", {
+                username: username,
+                password: password,
+            });
 
-navigate("/dashboard", { replace: true });
+            const data = response.data;
 
-    } catch (error) {
-        console.error(error);
-        alert("Backend error");
-    }
+            localStorage.setItem("role", data.role);
+            localStorage.setItem("username", data.username);
+            localStorage.setItem("token", "logged_in");
 
-    setLoading(false);
-};
+            navigate("/dashboard", { replace: true });
+
+        } catch (error) {
+            console.error(error);
+            alert("Wrong username or password");
+        }
+
+        setLoading(false);
+    };
 
     return (
         <div className="login-container">

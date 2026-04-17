@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import api from "../utils/Api";
 import "./UsersPage.css";
 
 function UsersPage() {
@@ -19,7 +19,7 @@ function UsersPage() {
 
     const fetchUsers = async () => {
         try {
-            const res = await axios.get("http://localhost:8080/users");
+            const res = await api.get("/users");
             setUsers(res.data);
         } catch (error) {
             console.error("Error fetching users", error);
@@ -27,40 +27,40 @@ function UsersPage() {
     };
 
     const createUser = async () => {
-    if (!username || !password || !role) {
-        setMessage("Please fill all fields ❌");
-        return;
-    }
+        if (!username || !password || !role) {
+            setMessage("Please fill all fields ❌");
+            return;
+        }
 
-    try {
-        const payload = {
-            username: username.trim(),
-            password: password.trim(),
-            role: role
-        };
+        try {
+            const payload = {
+                username: username.trim(),
+                password: password.trim(),
+                role: role
+            };
 
-        console.log("SENDING USER:", payload);
+            console.log("SENDING USER:", payload);
 
-        await axios.post("http://localhost:8080/users/create", payload);
+            await api.post("/users/create", payload);
 
-        setMessage("User created successfully ✅");
+            setMessage("User created successfully ✅");
 
-        setUsername("");
-        setPassword("");
-        setRole("HR");
+            setUsername("");
+            setPassword("");
+            setRole("HR");
 
-        fetchUsers();
+            fetchUsers();
 
-    } catch (error) {
-        console.error("CREATE USER ERROR:", error);
+        } catch (error) {
+            console.error("CREATE USER ERROR:", error);
 
-        setMessage(
-            error.response?.data?.error ||
-            error.response?.data?.message ||
-            "User Already Exists ❌"
-        );
-    }
-};
+            setMessage(
+                error.response?.data?.error ||
+                error.response?.data?.message ||
+                "User Already Exists ❌"
+            );
+        }
+    };
 
     // ACCESS CONTROL
     if (roleFromStorage !== "ADMIN") {
@@ -88,14 +88,14 @@ function UsersPage() {
                 />
 
                 <select
-    value={role}
-    onChange={(e) => setRole(e.target.value)}
->
-    <option value="ADMIN">ADMIN</option>
-    <option value="HR">HR</option>
-    <option value="MANAGER">MANAGER</option>
-    <option value="AUDITOR">AUDITOR</option>
-</select>
+                    value={role}
+                    onChange={(e) => setRole(e.target.value)}
+                >
+                    <option value="ADMIN">ADMIN</option>
+                    <option value="HR">HR</option>
+                    <option value="MANAGER">MANAGER</option>
+                    <option value="AUDITOR">AUDITOR</option>
+                </select>
 
                 <button onClick={createUser}>
                     Create User
@@ -108,21 +108,21 @@ function UsersPage() {
 
             <table border="1">
                 <thead>
-                    <tr>
-                        <th>Username</th>
-                        <th>Password</th>
-                        <th>Role</th>
-                    </tr>
+                <tr>
+                    <th>Username</th>
+                    <th>Password</th>
+                    <th>Role</th>
+                </tr>
                 </thead>
 
                 <tbody>
-                    {users.map((u) => (
-                        <tr key={u.id}>
-                            <td>{u.username}</td>
-                            <td>{u.password}</td>
-                            <td>{u.role}</td>
-                        </tr>
-                    ))}
+                {users.map((u) => (
+                    <tr key={u.id}>
+                        <td>{u.username}</td>
+                        <td>{u.password}</td>
+                        <td>{u.role}</td>
+                    </tr>
+                ))}
                 </tbody>
             </table>
 
