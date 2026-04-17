@@ -1,0 +1,166 @@
+/* 🔄 RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 🌍 BODY */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f8fafc;
+}
+
+/* 🧱 APP LAYOUT */
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* 📌 SIDEBAR */
+.sidebar {
+  width: 220px;
+  flex-shrink: 0;
+}
+
+/* 📄 MAIN CONTENT */
+.main-content {
+  flex: 1;
+  padding: 16px 20px;
+  background: #f8fafc;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 🧾 PAGE TITLE */
+.page-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+/* 🧱 DASHBOARD CARDS */
+.dashboard-cards {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(180px, 1fr));
+  gap: 16px;
+  width: 100%;
+  align-items: start;
+}
+
+/* 🧱 CARD STYLE */
+.card {
+  background: white;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  height: fit-content;
+}
+
+/* CARD TEXT */
+.card h3 {
+  font-size: 14px;
+  color: #64748b;
+}
+
+.card p {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 8px;
+}
+
+/* 🔍 SEARCH BAR */
+.search-bar {
+  margin: 12px 0;
+}
+
+.search-bar input {
+  width: 100%;
+  max-width: 300px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+/* 📊 TABLE */
+.table-container {
+  overflow-x: auto;
+  margin-top: 12px;
+}
+
+.bond-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+.bond-table th,
+.bond-table td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.bond-table th {
+  background: #f1f5f9;
+  font-weight: bold;
+}
+
+/* 🎯 STATUS COLORS */
+.status-pending {
+  color: orange;
+  font-weight: bold;
+}
+
+.status-active {
+  color: blue;
+  font-weight: bold;
+}
+
+.status-completed {
+  color: green;
+  font-weight: bold;
+}
+
+.status-breached {
+  color: red;
+  font-weight: bold;
+}
+
+/* 🔘 BUTTONS */
+button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+/* 🚪 LOGOUT BUTTON */
+.logout-btn {
+  background: rgba(236, 117, 20, 0.37);
+  color: white;
+}
+
+/* 📱 RESPONSIVE */
+
+/* tablet */
+@media (max-width: 1024px) {
+  .dashboard-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* mobile */
+@media (max-width: 768px) {
+  .dashboard-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .main-content {
+    padding: 14px;
+  }
+}

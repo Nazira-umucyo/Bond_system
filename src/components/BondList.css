@@ -1,0 +1,89 @@
+.bond-list {
+  margin-top: 20px;
+}
+
+.bond-list h2 {
+  text-align: center;
+  color: #4b2e2b;
+  margin-bottom: 20px;
+}
+
+/* ===== TABLE ===== */
+.bond-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+}
+
+.bond-table th {
+  background: #4b2e2b;
+  color: white;
+  padding: 12px;
+  text-align: left;
+  font-size: 13px;
+}
+
+.bond-table td {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+}
+
+/* ===== STATUS ===== */
+.status {
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.status.PENDING {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.status.ACTIVE {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.status.BREACHED {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+/* ===== EXPOSURE ===== */
+.exposure {
+  color: red;
+  font-weight: bold;
+}
+
+/* ===== BUTTONS ===== */
+.btn {
+  padding: 6px 10px;
+  margin-right: 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.btn.approve {
+  background: #4b2e2b;
+  color: white;
+}
+
+.btn.approve:hover {
+  background: #6b3f3a;
+}
+
+.btn.breach {
+  background: #c0392b;
+  color: white;
+}
+
+.btn.breach:hover {
+  background: #a93226;
+}

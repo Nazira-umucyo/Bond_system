@@ -1,0 +1,104 @@
+/* UsersPage.css */
+
+.users-container {
+    padding: 30px;
+    background: #f6f4f1;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+}
+
+/* TITLE */
+.users-container h1 {
+    text-align: center;
+    color: #4b2e2e;
+    margin-bottom: 25px;
+    font-size: 28px;
+}
+
+.user-form {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    max-width: 500px;
+    margin: 0 auto 30px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.user-form input,
+.user-form select {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    outline: none;
+    transition: 0.2s;
+}
+
+.user-form input:focus,
+.user-form select:focus {
+    border-color: #8b5e3c;
+    box-shadow: 0 0 4px rgba(139, 94, 60, 0.3);
+}
+
+.user-form button {
+    padding: 10px;
+    background: #8b5e3c;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.user-form button:hover {
+    background: #6e472d;
+}
+
+.user-form p {
+    text-align: center;
+    font-weight: bold;
+    color: green;
+}
+
+.users-container h2 {
+    text-align: center;
+    margin-bottom: 15px;
+    color: #4b2e2e;
+}
+
+.users-container table {
+    width: 90%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.users-container th {
+    background: #8b5e3c;
+    color: white;
+    padding: 12px;
+    font-size: 14px;
+}
+
+.users-container td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+}
+
+.users-container tr:hover {
+    background: #f3ede7;
+}
+
+.users-container td:last-child {
+    font-weight: bold;
+    color: #6e472d;
+}
