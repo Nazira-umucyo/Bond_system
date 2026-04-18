@@ -30,7 +30,7 @@ function Sidebar() {
             </div>
 
             <nav>
-                <Link to="/dashboard">{t.dashboard}</Link>
+                <Link to="/dashboard">Dashboard</Link>
                 {role === "ADMIN" && <Link to="/users">Users</Link>}
                 {role === "HR" && <Link to="/bonds">Bonds</Link>}
                 {role === "MANAGER" && (
