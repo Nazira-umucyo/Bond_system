@@ -43,7 +43,15 @@ function LoginPage() {
     return (
         <div className="login-container">
             <div className="login-card">
+
+                {/* BNR LOGO */}
+                <img src="/bnr-logo.png" alt="BNR Logo" className="login-logo" />
+
                 <h1 className="login-title">National Bank Of Rwanda</h1>
+
+                {/* GOLD DIVIDER */}
+                <div className="login-divider"></div>
+
                 <p className="login-subtitle">Bond Management System</p>
 
                 <input

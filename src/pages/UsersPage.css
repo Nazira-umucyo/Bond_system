@@ -1,104 +1,162 @@
-/* UsersPage.css */
-
+/* ===== USERS PAGE ===== */
 .users-container {
     padding: 30px;
-    background: #f6f4f1;
+    background: #f0ebe9;
     min-height: 100vh;
-    font-family: Arial, sans-serif;
+    font-family: "Segoe UI", Arial, sans-serif;
 }
 
-/* TITLE */
+/* ===== TITLE ===== */
 .users-container h1 {
-    text-align: center;
-    color: #4b2e2e;
-    margin-bottom: 25px;
-    font-size: 28px;
+    color: #1a0a08;
+    margin-bottom: 6px;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
 }
 
+.users-container h2 {
+    color: #1a0a08;
+    margin: 30px 0 16px 0;
+    font-size: 18px;
+    font-weight: 600;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #d4a373;
+    display: inline-block;
+}
+
+/* ===== PAGE HEADER ===== */
+.users-page-header {
+    background: linear-gradient(135deg, #1a0a08, #2f1a18, #4b2e2b);
+    color: white;
+    padding: 25px 30px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    border-left: 5px solid #d4a373;
+}
+
+.users-page-header h1 {
+    margin: 0;
+    color: white;
+    font-size: 22px;
+    letter-spacing: 0.8px;
+}
+
+/* ===== FORM CARD ===== */
 .user-form {
     background: white;
-    padding: 20px;
+    padding: 28px;
     border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
     max-width: 500px;
     margin: 0 auto 30px auto;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 14px;
+    border-top: 4px solid #4b2e2b;
 }
 
+/* ===== INPUTS ===== */
 .user-form input,
 .user-form select {
-    padding: 10px;
+    padding: 12px 16px;
     border-radius: 8px;
-    border: 1px solid #ccc;
+    border: 1px solid #d4b5a0;
     font-size: 14px;
     outline: none;
     transition: 0.2s;
+    background: #fdfbfa;
+    color: #1a0a08;
 }
 
 .user-form input:focus,
 .user-form select:focus {
-    border-color: #8b5e3c;
-    box-shadow: 0 0 4px rgba(139, 94, 60, 0.3);
+    border-color: #4b2e2b;
+    box-shadow: 0 0 0 3px rgba(75, 46, 43, 0.1);
+    background: white;
 }
 
+.user-form input::placeholder {
+    color: #aaa;
+}
+
+/* ===== BUTTON ===== */
 .user-form button {
-    padding: 10px;
-    background: #8b5e3c;
+    padding: 12px;
+    background: linear-gradient(135deg, #4b2e2b, #6b3f3a);
     color: white;
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    font-size: 15px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
     transition: 0.3s;
+    box-shadow: 0 4px 12px rgba(75, 46, 43, 0.3);
 }
 
 .user-form button:hover {
-    background: #6e472d;
+    background: linear-gradient(135deg, #2f1a18, #4b2e2b);
+    box-shadow: 0 6px 16px rgba(75, 46, 43, 0.4);
+    transform: translateY(-1px);
 }
 
+/* ===== MESSAGE ===== */
 .user-form p {
     text-align: center;
-    font-weight: bold;
-    color: green;
+    font-weight: 600;
+    font-size: 13px;
+    color: #065f46;
+    background: #d1fae5;
+    padding: 8px;
+    border-radius: 6px;
+    margin: 0;
 }
 
-.users-container h2 {
-    text-align: center;
-    margin-bottom: 15px;
-    color: #4b2e2e;
-}
-
+/* ===== TABLE ===== */
 .users-container table {
-    width: 90%;
-    margin: 0 auto;
+    width: 100%;
     border-collapse: collapse;
     background: white;
-    border-radius: 10px;
+    border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
 }
 
 .users-container th {
-    background: #8b5e3c;
+    background: linear-gradient(135deg, #1a0a08, #2f1a18);
     color: white;
-    padding: 12px;
-    font-size: 14px;
+    padding: 14px 16px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    text-align: left;
 }
 
 .users-container td {
-    padding: 12px;
-    text-align: center;
-    border-bottom: 1px solid #eee;
-    font-size: 14px;
+    padding: 13px 16px;
+    border-bottom: 1px solid #f0ebe9;
+    font-size: 13px;
+    color: #333;
+    text-align: left;
 }
 
-.users-container tr:hover {
-    background: #f3ede7;
+.users-container tr:last-child td {
+    border-bottom: none;
 }
 
+.users-container tr:hover td {
+    background: #faf5f3;
+}
+
+.users-container tr:nth-child(even) td {
+    background: #fdfbfa;
+}
+
+/* ===== ROLE BADGE ===== */
 .users-container td:last-child {
-    font-weight: bold;
-    color: #6e472d;
+    font-weight: 600;
+    color: #4b2e2b;
 }

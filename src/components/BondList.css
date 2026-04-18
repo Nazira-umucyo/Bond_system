@@ -1,42 +1,75 @@
+/* ===== BOND LIST ===== */
 .bond-list {
-  margin-top: 20px;
+  padding: 30px;
+  background: #f0ebe9;
+  min-height: 100vh;
+  font-family: "Segoe UI", Arial, sans-serif;
 }
 
 .bond-list h2 {
-  text-align: center;
-  color: #4b2e2b;
-  margin-bottom: 20px;
+  color: #1a0a08;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+  padding-bottom: 12px;
+  border-bottom: 3px solid #d4a373;
+  display: inline-block;
+}
+
+/* ===== TABLE WRAPPER ===== */
+.table-wrapper {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  border-top: 4px solid #4b2e2b;
+  margin-top: 20px;
 }
 
 /* ===== TABLE ===== */
 .bond-table {
   width: 100%;
   border-collapse: collapse;
-  background: white;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
 }
 
 .bond-table th {
-  background: #4b2e2b;
+  background: linear-gradient(135deg, #1a0a08, #2f1a18);
   color: white;
-  padding: 12px;
+  padding: 14px 16px;
   text-align: left;
-  font-size: 13px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
 }
 
 .bond-table td {
-  padding: 12px;
-  border-bottom: 1px solid #eee;
+  padding: 13px 16px;
+  border-bottom: 1px solid #f0ebe9;
+  font-size: 13px;
+  color: #333;
+}
+
+.bond-table tr:last-child td {
+  border-bottom: none;
+}
+
+.bond-table tr:hover td {
+  background: #faf5f3;
+}
+
+.bond-table tr:nth-child(even) td {
+  background: #fdfbfa;
 }
 
 /* ===== STATUS ===== */
 .status {
-  padding: 5px 10px;
-  border-radius: 6px;
-  font-size: 12px;
-  font-weight: 500;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
 
 .status.PENDING {
@@ -45,8 +78,13 @@
 }
 
 .status.ACTIVE {
-  background: #dcfce7;
-  color: #166534;
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.status.COMPLETED {
+  background: #dbeafe;
+  color: #1e40af;
 }
 
 .status.BREACHED {
@@ -56,34 +94,49 @@
 
 /* ===== EXPOSURE ===== */
 .exposure {
-  color: red;
-  font-weight: bold;
+  color: #dc2626;
+  font-weight: 700;
+}
+
+/* ===== ACTIONS ===== */
+.actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
 }
 
 /* ===== BUTTONS ===== */
 .btn {
-  padding: 6px 10px;
-  margin-right: 5px;
+  padding: 7px 14px;
   border: none;
-  border-radius: 5px;
+  border-radius: 6px;
   cursor: pointer;
   font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: 0.2s;
 }
 
-.btn.approve {
-  background: #4b2e2b;
+.btn.complete {
+  background: linear-gradient(135deg, #4b2e2b, #6b3f3a);
   color: white;
+  box-shadow: 0 2px 8px rgba(75, 46, 43, 0.3);
 }
 
-.btn.approve:hover {
-  background: #6b3f3a;
+.btn.complete:hover {
+  background: linear-gradient(135deg, #2f1a18, #4b2e2b);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(75, 46, 43, 0.4);
 }
 
 .btn.breach {
-  background: #c0392b;
+  background: linear-gradient(135deg, #b91c1c, #dc2626);
   color: white;
+  box-shadow: 0 2px 8px rgba(185, 28, 28, 0.3);
 }
 
 .btn.breach:hover {
-  background: #a93226;
+  background: linear-gradient(135deg, #991b1b, #b91c1c);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(185, 28, 28, 0.4);
 }

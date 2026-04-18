@@ -1,73 +1,93 @@
 :root {
   --primary-color: #4b2e2b;
-  --primary-dark: #3e241f;
+  --primary-dark: #2f1a18;
+  --gold: #d4a373;
 }
 
 .page {
   padding: 30px;
-  background: #f5f5f5;
+  background: #f0ebe9;
   min-height: 100vh;
   font-family: "Segoe UI", Arial, sans-serif;
 }
 
-/* ===== TITLE ===== */
 .title {
-  text-align: center;
-  color: var(--primary-color);
-  margin-bottom: 20px;
+  color: #1a0a08;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+  padding-bottom: 12px;
+  border-bottom: 3px solid var(--gold);
+  display: inline-block;
 }
 
-/* ===== EMPTY ===== */
 .empty {
   text-align: center;
-  color: gray;
+  color: #999;
   font-size: 14px;
+  padding: 40px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
 }
 
-/* ===== CARD ===== */
 .card {
   background: white;
-  padding: 20px;
   border-radius: 12px;
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
-  overflow-x: auto;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  border-top: 4px solid var(--primary-color);
 }
 
-/* ===== TABLE ===== */
 .table {
   width: 100%;
   border-collapse: collapse;
 }
 
 .table th {
-  background: var(--primary-color);
+  background: linear-gradient(135deg, #1a0a08, #2f1a18);
   color: white;
-  padding: 12px;
+  padding: 14px 16px;
   text-align: left;
-  font-size: 13px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
 }
 
 .table td {
-  padding: 12px;
-  border-bottom: 1px solid #eee;
+  padding: 13px 16px;
+  border-bottom: 1px solid #f0ebe9;
+  font-size: 13px;
+  color: #333;
 }
 
-/* ===== ROW HOVER ===== */
-.table tr:hover {
-  background: #f9f5f5;
+.table tr:last-child td {
+  border-bottom: none;
+}
+
+.table tr:hover td {
+  background: #faf5f3;
+}
+
+.table tr:nth-child(even) td {
+  background: #fdfbfa;
 }
 
 /* ===== EMPLOYEE ===== */
 .employee {
-  font-weight: 500;
+  font-weight: 600;
+  color: #1a0a08;
 }
 
 /* ===== STATUS ===== */
 .status {
-  padding: 5px 10px;
-  border-radius: 6px;
-  font-size: 12px;
-  font-weight: bold;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
 
 .status.pending {
@@ -79,31 +99,41 @@
 .actions {
   display: flex;
   gap: 8px;
+  align-items: center;
 }
 
 /* ===== BUTTONS ===== */
 .btn {
-  padding: 6px 10px;
+  padding: 7px 14px;
   border: none;
-  border-radius: 5px;
+  border-radius: 6px;
   cursor: pointer;
   font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: 0.2s;
 }
 
 .btn.approve {
-  background: var(--primary-color);
+  background: linear-gradient(135deg, #4b2e2b, #6b3f3a);
   color: white;
+  box-shadow: 0 2px 8px rgba(75, 46, 43, 0.3);
 }
 
 .btn.approve:hover {
-  background: var(--primary-dark);
+  background: linear-gradient(135deg, #2f1a18, #4b2e2b);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(75, 46, 43, 0.4);
 }
 
 .btn.reject {
-  background: #b23a48;
+  background: linear-gradient(135deg, #b91c1c, #dc2626);
   color: white;
+  box-shadow: 0 2px 8px rgba(185, 28, 28, 0.3);
 }
 
 .btn.reject:hover {
-  background: #8c2c37;
+  background: linear-gradient(135deg, #991b1b, #b91c1c);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(185, 28, 28, 0.4);
 }

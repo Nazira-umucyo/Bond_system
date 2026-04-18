@@ -1,79 +1,119 @@
+/* ===== REPORTS PAGE ===== */
 .reports-container {
   padding: 30px;
-  background: #f4f6f9;
+  background: #f0ebe9;
   min-height: 100vh;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Arial, sans-serif;
 }
 
+/* ===== HEADER ===== */
 .reports-container h1 {
-  margin-bottom: 20px;
-  color: #5C4033;
+  color: #1a0a08;
+  font-size: 24px;
   font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+  padding-bottom: 12px;
+  border-bottom: 3px solid #d4a373;
+  display: inline-block;
 }
 
+/* ===== FILTERS ===== */
 .filters {
   display: flex;
-  gap: 15px;
+  gap: 12px;
   margin-bottom: 25px;
+  flex-wrap: wrap;
 }
 
 .filters input,
 .filters select {
-  padding: 10px 15px;
+  padding: 11px 16px;
   border-radius: 8px;
-  border: 1px solid #ddd;
+  border: 1px solid #d4b5a0;
   font-size: 14px;
   outline: none;
   background: white;
+  color: #1a0a08;
   transition: 0.2s;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
 }
 
 .filters input:focus,
 .filters select:focus {
-  border-color: #5C4033;
+  border-color: #4b2e2b;
+  box-shadow: 0 0 0 3px rgba(75, 46, 43, 0.1);
 }
 
+/* ===== KPI CARDS ===== */
 .kpis {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 15px;
+  gap: 14px;
   margin-bottom: 25px;
 }
 
 .kpis div {
   background: white;
-  padding: 18px;
+  padding: 18px 20px;
   border-radius: 12px;
+  font-size: 13px;
   font-weight: 600;
-  color: #374151;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  border-left: 5px solid #5C4033;
-  transition: 0.2s;
+  color: #1a0a08;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  border-left: 4px solid #4b2e2b;
+  transition: 0.25s;
+  position: relative;
+  overflow: hidden;
+}
+
+.kpis div::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 50px;
+  height: 50px;
+  background: rgba(75, 46, 43, 0.04);
+  border-radius: 50% 0 0 0;
 }
 
 .kpis div:hover {
   transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  border-left-color: #d4a373;
 }
 
+/* ===== FINANCIAL SUMMARY ===== */
 .financial {
   background: white;
-  padding: 20px;
+  padding: 24px;
   border-radius: 12px;
   margin-bottom: 25px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  border-top: 4px solid #4b2e2b;
 }
 
 .financial h3 {
-  margin-bottom: 10px;
-  color: #5C4033;
+  margin: 0 0 16px 0;
+  color: #1a0a08;
+  font-size: 16px;
+  font-weight: 700;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #d4a373;
 }
 
 .financial p {
-  margin: 6px 0;
+  margin: 8px 0;
   color: #4b5563;
   font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px solid #f0ebe9;
 }
 
+/* ===== REPORT TABLE ===== */
 .report-table {
   width: 100%;
   border-collapse: collapse;
@@ -81,66 +121,94 @@
   border-radius: 12px;
   overflow: hidden;
   margin-bottom: 25px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
 }
 
 .report-table thead {
-  background: #5C4033;
+  background: linear-gradient(135deg, #1a0a08, #2f1a18);
+}
+
+.report-table th {
   color: white;
-}
-
-.report-table th,
-.report-table td {
-  padding: 12px 15px;
+  padding: 14px 16px;
   text-align: left;
-  font-size: 14px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
 }
 
-.report-table tbody tr {
-  border-bottom: 1px solid #e5e7eb;
-  transition: 0.2s;
+.report-table td {
+  padding: 13px 16px;
+  text-align: left;
+  font-size: 13px;
+  color: #333;
+  border-bottom: 1px solid #f0ebe9;
 }
 
-.report-table tbody tr:hover {
-  background: #f9fafb;
+.report-table tbody tr:last-child td {
+  border-bottom: none;
 }
 
+.report-table tbody tr:hover td {
+  background: #faf5f3;
+}
+
+.report-table tbody tr:nth-child(even) td {
+  background: #fdfbfa;
+}
+
+/* ===== STATUS ===== */
 .status {
   font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  letter-spacing: 0.5px;
 }
 
 .status.active {
-  color: #16a34a;
+  background: #d1fae5;
+  color: #065f46;
 }
 
 .status.breached {
-  color: #dc2626;
+  background: #fee2e2;
+  color: #991b1b;
 }
 
 .status.completed {
-  color: #2563eb;
+  background: #dbeafe;
+  color: #1e40af;
 }
 
 .status.pending {
-  color: #f59e0b;
+  background: #fef3c7;
+  color: #92400e;
 }
 
+/* ===== EXPORT BUTTON ===== */
 .export-btn {
-  background: #5C4033;
+  background: linear-gradient(135deg, #4b2e2b, #6b3f3a);
   color: white;
-  padding: 12px 22px;
+  padding: 12px 24px;
   border: none;
-  border-radius: 10px;
+  border-radius: 8px;
   cursor: pointer;
   font-weight: 600;
-  transition: 0.2s;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  transition: 0.3s;
+  box-shadow: 0 4px 12px rgba(75, 46, 43, 0.3);
 }
 
 .export-btn:hover {
-  background: #4a3228;
+  background: linear-gradient(135deg, #2f1a18, #4b2e2b);
   transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(75, 46, 43, 0.4);
 }
 
+/* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
   .filters {
     flex-direction: column;
@@ -155,8 +223,4 @@
     font-size: 12px;
     padding: 8px;
   }
-}
-.financial h3 {
-  border-bottom: 2px solid #5C4033;
-  padding-bottom: 5px;
 }
