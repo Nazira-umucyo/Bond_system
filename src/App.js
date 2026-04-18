@@ -18,12 +18,12 @@ function App() {
     return (
         <div style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
 
-            {/* MAIN CONTENT AREA */}
+            {/* SIDEBAR + CONTENT ROW */}
             <div style={{ display: "flex", flex: 1 }}>
 
                 {showSidebar && <Sidebar />}
 
-                <div style={{ flex: 1, padding: "20px", overflowY: "auto" }}>
+                <div style={{ flex: 1, padding: "20px" }}>
                     <Routes>
                         <Route path="/" element={<LoginPage />} />
                         <Route path="/dashboard" element={
@@ -61,16 +61,14 @@ function App() {
 
             </div>
 
-            {/* 📄 FOOTER - outside the flex row, below everything */}
+            {/* FOOTER */}
             <footer style={{
-                width: "100%",
                 backgroundColor: "#2f1a18",
                 color: "rgba(255,255,255,0.6)",
                 textAlign: "center",
                 padding: "12px",
                 fontSize: "12px",
                 borderTop: "1px solid rgba(255,255,255,0.1)",
-                flexShrink: 0
             }}>
                 © 2026 Bond Management System - National Bank of Rwanda (BNR). All rights reserved.
             </footer>
