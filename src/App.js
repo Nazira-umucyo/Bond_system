@@ -8,97 +8,75 @@ import DashboardPage from "./pages/DashboardPage";
 import ApprovalPage from "./pages/ApprovalPage";
 import ReportsPage from "./pages/ReportsPage";
 
-
 import Sidebar from "./components/Sidebar";
 import RoleRoute from "./utils/RoleRoute";
 
 function App() {
-  const location = useLocation();
-  const showSidebar = location.pathname !== "/";
+    const location = useLocation();
+    const showSidebar = location.pathname !== "/";
 
-  return (
-    <div style={{ display: "flex", minHeight: "100vh" }}>
+    return (
+        <div style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
 
-      {showSidebar && <Sidebar />}
+            {/* MAIN CONTENT AREA */}
+            <div style={{ display: "flex", flex: 1 }}>
 
-      <div
-        style={{
-          flex: 1,
-          padding: "20px",
-        }}
-      >
-        <Routes>
+                {showSidebar && <Sidebar />}
 
-          <Route path="/" element={<LoginPage />} />
+                <div style={{ flex: 1, padding: "20px", overflowY: "auto" }}>
+                    <Routes>
+                        <Route path="/" element={<LoginPage />} />
+                        <Route path="/dashboard" element={
+                            <RoleRoute allowedRoles={["ADMIN", "HR", "MANAGER", "AUDITOR"]}>
+                                <DashboardPage />
+                            </RoleRoute>
+                        }/>
+                        <Route path="/users" element={
+                            <RoleRoute allowedRoles={["ADMIN"]}>
+                                <UsersPage />
+                            </RoleRoute>
+                        }/>
+                        <Route path="/bonds" element={
+                            <RoleRoute allowedRoles={["HR"]}>
+                                <BondsPage />
+                            </RoleRoute>
+                        }/>
+                        <Route path="/approvals" element={
+                            <RoleRoute allowedRoles={["MANAGER"]}>
+                                <ApprovalPage />
+                            </RoleRoute>
+                        }/>
+                        <Route path="/bond-list" element={
+                            <RoleRoute allowedRoles={["MANAGER"]}>
+                                <BondList />
+                            </RoleRoute>
+                        }/>
+                        <Route path="/reports" element={
+                            <RoleRoute allowedRoles={["AUDITOR"]}>
+                                <ReportsPage />
+                            </RoleRoute>
+                        }/>
+                    </Routes>
+                </div>
 
-          <Route
-            path="/dashboard"
-            element={
-              <RoleRoute allowedRoles={["ADMIN", "HR", "MANAGER", "AUDITOR"]}>
-                <DashboardPage />
-              </RoleRoute>
-            }
-          />
+            </div>
 
-          <Route
-            path="/users"
-            element={
-              <RoleRoute allowedRoles={["ADMIN"]}>
-                <UsersPage />
-              </RoleRoute>
-            }
-          />
+            {/* 📄 FOOTER - outside the flex row, below everything */}
+            <footer style={{
+                width: "100%",
+                backgroundColor: "#2f1a18",
+                color: "rgba(255,255,255,0.6)",
+                textAlign: "center",
+                padding: "12px",
+                fontSize: "12px",
+                borderTop: "1px solid rgba(255,255,255,0.1)",
+                flexShrink: 0
+            }}>
+                © 2026 Bond Management System - National Bank of Rwanda (BNR). All rights reserved.
+            </footer>
 
-          <Route
-            path="/bonds"
-            element={
-              <RoleRoute allowedRoles={["HR"]}>
-                <BondsPage />
-              </RoleRoute>
-            }
-          />
-
-          <Route
-            path="/approvals"
-            element={
-              <RoleRoute allowedRoles={["MANAGER"]}>
-                <ApprovalPage />
-              </RoleRoute>
-            }
-          />
-
-          <Route
-            path="/bond-list"
-            element={
-              <RoleRoute allowedRoles={["MANAGER"]}>
-                <BondList />
-              </RoleRoute>
-            }
-          />
-
-          <Route
-            path="/reports"
-            element={
-              <RoleRoute allowedRoles={["AUDITOR"]}>
-                <ReportsPage />
-              </RoleRoute>
-            }
-          />
-
-        </Routes>
-      </div>
-        <footer style={{
-            backgroundColor: "#2f1a18",
-            color: "rgba(255,255,255,0.6)",
-            textAlign: "center",
-            padding: "12px",
-            fontSize: "12px",
-            borderTop: "1px solid rgba(255,255,255,0.1)"
-        }}>
-            © 2026 Bond Management System - National Bank of Rwanda (BNR). All rights reserved.
-        </footer>
-
-    </div>
-  );
+        </div>
+    );
 }
+
 export default App;
