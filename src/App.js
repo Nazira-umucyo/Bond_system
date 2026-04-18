@@ -87,6 +87,16 @@ function App() {
 
         </Routes>
       </div>
+        <footer style={{
+            backgroundColor: "#2f1a18",
+            color: "rgba(255,255,255,0.6)",
+            textAlign: "center",
+            padding: "12px",
+            fontSize: "12px",
+            borderTop: "1px solid rgba(255,255,255,0.1)"
+        }}>
+            © 2026 Bond Management System - National Bank of Rwanda (BNR). All rights reserved.
+        </footer>
 
     </div>
   );

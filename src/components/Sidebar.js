@@ -17,22 +17,6 @@ function Sidebar() {
         navigate("/", { replace: true });
     };
 
-    const toggleDark = () => {
-        setDarkMode(!darkMode);
-        document.body.classList.toggle("dark-mode");
-    };
-
-    const t = {
-        dashboard: lang === "en" ? "Dashboard" : "Tableau de bord",
-        users: lang === "en" ? "Users" : "Utilisateurs",
-        bonds: lang === "en" ? "Bonds" : "Cautions",
-        approvals: lang === "en" ? "Approvals" : "Approbations",
-        bondList: lang === "en" ? "Bond List" : "Liste des cautions",
-        reports: lang === "en" ? "Reports" : "Rapports",
-        logout: lang === "en" ? "Logout" : "Déconnexion",
-        footer: lang === "en" ? "© 2026 Bond Management System - BNR" : "© 2026 Système de gestion - BNR",
-    };
-
     return (
         <div className="sidebar">
 
@@ -67,11 +51,6 @@ function Sidebar() {
             <button className="logout-btn" onClick={handleLogout}>
                 {t.logout}
             </button>
-
-            {/* 📄 FOOTER */}
-            <div className="sidebar-footer">
-                {t.footer}
-            </div>
 
         </div>
     );
