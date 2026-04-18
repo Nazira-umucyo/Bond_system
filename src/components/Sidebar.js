@@ -64,17 +64,6 @@ function Sidebar() {
                 {role === "AUDITOR" && <Link to="/reports">{t.reports}</Link>}
             </nav>
 
-            {/* 🌙 DARK MODE + 🇫🇷 LANGUAGE TOGGLES */}
-            <div className="toggles">
-                <button className="toggle-btn" onClick={toggleDark}>
-                    {darkMode ? "☀️ Light" : "🌙 Dark"}
-                </button>
-                <button className="toggle-btn" onClick={() => setLang(lang === "en" ? "fr" : "en")}>
-                    {lang === "en" ? "🇫🇷 FR" : "🇬🇧 EN"}
-                </button>
-            </div>
-
-            {/* 🚪 LOGOUT */}
             <button className="logout-btn" onClick={handleLogout}>
                 {t.logout}
             </button>
