@@ -1,7 +1,7 @@
 /* 🔷 SIDEBAR */
 .sidebar {
   width: 240px;
-  height: 100%;
+  min-height: 100vh;
   background: linear-gradient(180deg, #1a0a08 0%, #2f1a18 50%, #4b2e2b 100%);
   color: #ffffff;
   display: flex;

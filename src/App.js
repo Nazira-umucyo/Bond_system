@@ -19,9 +19,9 @@ function App() {
         <div style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
 
             {/* SIDEBAR + CONTENT ROW */}
-            <div style={{ display: "flex", flex: 1 }}>
+            <div style={{ display: "flex", flex: 1, alignItems: "stretch" }}>
 
-                {showSidebar && <Sidebar />}
+            {showSidebar && <Sidebar />}
 
                 <div style={{ flex: 1, padding: "20px" }}>
                     <Routes>
