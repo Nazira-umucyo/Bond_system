@@ -1,14 +1,11 @@
 import { Link, useNavigate } from "react-router-dom";
 import { getRole } from "../utils/role";
-import { useState } from "react";
 import "./Sidebar.css";
 
 function Sidebar() {
     const navigate = useNavigate();
     const role = (getRole() || "").toUpperCase();
     const username = localStorage.getItem("username");
-    const [darkMode, setDarkMode] = useState(false);
-    const [lang, setLang] = useState("en");
 
     if (!role) return null;
 
@@ -20,13 +17,11 @@ function Sidebar() {
     return (
         <div className="sidebar">
 
-            {/* 🔷 LOGO SECTION */}
             <div className="logo-container">
                 <img src="/bnr-logo.png" alt="BNR Logo" className="logo-img" />
                 <h2 className="logo-text">BNR</h2>
             </div>
 
-            {/* 👤 PROFILE SECTION */}
             <div className="profile-box">
                 <div className="avatar">👤</div>
                 <div>
@@ -34,22 +29,21 @@ function Sidebar() {
                 </div>
             </div>
 
-            {/* 🔗 NAVIGATION */}
             <nav>
                 <Link to="/dashboard">{t.dashboard}</Link>
-                {role === "ADMIN" && <Link to="/users">{t.users}</Link>}
-                {role === "HR" && <Link to="/bonds">{t.bonds}</Link>}
+                {role === "ADMIN" && <Link to="/users">Users</Link>}
+                {role === "HR" && <Link to="/bonds">Bonds</Link>}
                 {role === "MANAGER" && (
                     <>
-                        <Link to="/approvals">{t.approvals}</Link>
-                        <Link to="/bond-list">{t.bondList}</Link>
+                        <Link to="/approvals">Approvals</Link>
+                        <Link to="/bond-list">Bond List</Link>
                     </>
                 )}
-                {role === "AUDITOR" && <Link to="/reports">{t.reports}</Link>}
+                {role === "AUDITOR" && <Link to="/reports">Reports</Link>}
             </nav>
 
             <button className="logout-btn" onClick={handleLogout}>
-                {t.logout}
+                Logout
             </button>
 
         </div>
